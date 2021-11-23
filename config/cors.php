@@ -15,11 +15,12 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => ['api/*', 'sanctum/csrf-cookie', 'oauth/*'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    // see passport-spa-vue repoistory
+    'allowed_origins' => ['http://localhost:4999'],
 
     'allowed_origins_patterns' => [],
 

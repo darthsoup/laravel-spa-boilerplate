@@ -12,8 +12,10 @@ composer install
 npm install
 npm run prod
 
+vendor/bin/sail up
+
+php artisan migrate:fresh
 php artisan key:generate
 php artisan passport:install
 
-vendor/bin/sail up
 ```
