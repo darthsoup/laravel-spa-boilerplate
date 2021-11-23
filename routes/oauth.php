@@ -10,23 +10,11 @@ use App\Http\Controllers\OAuth\RegisteredUserController;
 use App\Http\Controllers\OAuth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/passport/register', [RegisteredUserController::class, 'create'])
-                ->middleware('guest')
-                ->name('passport.register');
-
 Route::post('/passport/register', [RegisteredUserController::class, 'store'])
                 ->middleware('guest');
 
-Route::get('/passport/login', [AuthenticatedSessionController::class, 'create'])
-                ->middleware('guest')
-                ->name('passport.login');
-
 Route::post('/passport/login', [AuthenticatedSessionController::class, 'store'])
                 ->middleware('guest');
-
-Route::get('/passport/forgot-password', [PasswordResetLinkController::class, 'create'])
-                ->middleware('guest')
-                ->name('passport.password.request');
 
 Route::post('/passport/forgot-password', [PasswordResetLinkController::class, 'store'])
                 ->middleware('guest')
