@@ -1,6 +1,8 @@
-# Passport SPA
+# Laravel SPA auth boilerplate
 
-Hacky Laravel Passport SPA Boilerplate for OAuth apps
+Hacky Laravel spa auth boilerplate for OAuth/JWT apps
+
+This repository only serves to record my experience about authentication
 
 ## Setup
 
@@ -16,6 +18,8 @@ vendor/bin/sail up
 
 php artisan migrate:fresh
 php artisan key:generate
+
 php artisan passport:install
+php artisan jwt:secret
 
 ```

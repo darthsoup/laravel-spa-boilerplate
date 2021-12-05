@@ -15,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-require __DIR__.'/oauth.php';
+require __DIR__.'/auth-jwt.php';
+require __DIR__.'/auth-oauth.php';
 
 Route::get('/user', [UserController::class, 'get'])
-    ->middleware('auth:api')
+    ->middleware('auth:api,jwt')
     ->name('user');
 
