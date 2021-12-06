@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers\JWT;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\AuthController;
 use App\Http\Requests\JWT\LoginRequest;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class AuthenticatedSessionController extends Controller
+class AuthenticatedSessionController extends AuthController
 {
+    protected ?string $guard = 'jwt';
+
+    /**
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function store(LoginRequest $request): JsonResponse
     {
         $token = $request->authenticate();
@@ -34,9 +39,9 @@ class AuthenticatedSessionController extends Controller
     protected function respondWithToken(string $token): JsonResponse
     {
         return response()->json([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
+            'accessToken' => $token,
+            'type' => 'bearer',
+            'expiresIn' => auth()->factory()->getTTL() * 60
         ]);
     }
 }

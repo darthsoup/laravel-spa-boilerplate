@@ -5,11 +5,9 @@ namespace App\Http\Controllers\OAuth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OAuth\LoginRequest;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class AuthenticatedSessionController extends Controller
@@ -26,11 +24,10 @@ class AuthenticatedSessionController extends Controller
 
         /** @var User $user */
         $user = auth()->user();
-
         $token = $user->createToken($user->name . Str::random());
 
         return response()->json([
-            'token' => $token->accessToken,
+            'accessToken' => $token->accessToken,
             'status' => Response::HTTP_OK
         ]);
     }

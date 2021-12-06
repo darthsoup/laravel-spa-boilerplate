@@ -21,5 +21,9 @@ php artisan key:generate
 
 php artisan passport:install
 php artisan jwt:secret
-
 ```
+
+## Used packages
+
+* [Laravel Passport](https://github.com/laravel/passport)
+* [PHP-Open-Source-Saver/jwt-auth](https://github.com/PHP-Open-Source-Saver/jwt-auth) - fork of tymondesign/jwt-auth
